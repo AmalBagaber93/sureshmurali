@@ -7,9 +7,9 @@ const DesignSystem = () => {
       <div className=" flex flex-col justify-between py-10">
         <h1 className="text-3xl font-medium">01</h1>
         <div className=" space-y-5">
-        <h1 className="text-6xl font-semibold py-4 text-black w-fit transition-colors duration-300 ease-in-out translate-x-60 bg-black ">
-  FR Design System
-</h1>
+          <h1 className="text-6xl font-semibold py-4 text-black w-fit transition-colors duration-300 ease-in-out translate-x-60 bg-black ">
+            FR Design System
+          </h1>
 
           <h3 className="text-4xl font-medium">
             Design system lead • Technical PDM
