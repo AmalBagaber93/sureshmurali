@@ -1,7 +1,7 @@
 import React from 'react'
 import HeroSecton from './hero-secton/hero-secton'
 import AboutMe from './about-me/about-me'
-import DesignSystem from './design-system/design-system'
+import DesignSystem from './list/list'
 import Footer from './footer/footer'
 import Skills from './skills/skills'
 
