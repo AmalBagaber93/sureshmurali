@@ -10,11 +10,14 @@ const AboutMe = () => {
       const titleMotion = document.getElementById("titleMotion");
       if (!sectionAboutMeRef.current || !titleMotion) return;
 
-      const topPosition = sectionAboutMeRef?.current?.getBoundingClientRect().top;
-      const sectionHeight = sectionAboutMeRef.current.getBoundingClientRect().height;
+      const topPosition =
+        sectionAboutMeRef?.current?.getBoundingClientRect().top;
+      const sectionHeight =
+        sectionAboutMeRef.current.getBoundingClientRect().height;
       const windowHeight = window.innerHeight;
 
-      const newPosition = Math.round(((windowHeight - topPosition) / sectionHeight) * 100
+      const newPosition = Math.round(
+        ((windowHeight - topPosition) / sectionHeight) * 100
       );
       if (topPosition < windowHeight) {
         titleMotion.style.opacity = "1";
@@ -35,18 +38,18 @@ const AboutMe = () => {
   return (
     <div
       ref={sectionAboutMeRef}
-      className="flex flex-col justify-center  min-h-screen mb-60"
+      className="flex flex-col sm:justify-start md:justify-center  min-h-screen mb-60"
     >
       <h1
         id="titleMotion"
         className={clsx(
-          "relative text-[200px]  font-semibold text-gray-100 transition-transform duration-1000 ease-out opacity-0  "
+          "sm:hidden md:block relative text-[200px] font-semibold text-gray-100 transition-transform duration-1000 ease-out opacity-0  "
         )}
       >
         ABOUT ME
       </h1>
       <div className="absolute justify-items-end ">
-        <h5 className="text-4xl w-5/6">
+        <h5 className="text-4xl w-full md:w-5/6">
           Crafting user-friendly and aesthetic UI designs is not just my
           profession, it's my passion.
         </h5>

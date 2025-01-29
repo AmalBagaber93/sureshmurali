@@ -59,56 +59,69 @@ const imagesData = [
     srcThree: "/image-three.png",
     srcFour: "/image-four.png",
   },
-{  
-  srcOne: "/image-five.png",
-    srcTWo:"/image-six.png",
+  {
+    srcOne: "/image-five.png",
+    srcTWo: "/image-six.png",
     srcThree: "/image-seven.png",
-   srcFour:"/image-nine.png"},
+    srcFour: "/image-nine.png",
+  },
 
- {   srcOne:"/image-ten.png",
-  srcTWo:"/image-eleven.png"},
-{  srcOne:"/image-twelve.png",
-   srcTWo:"/image-thirteen.png",
-   srcThree:"/image-fourteen.png",
-   srcFour:  "/image-fifteen.png",},
-   {  srcOne:"/food-one.png",
-    srcTWo:"/food-two.png",
-    srcThree:"/food-three.png",
-    srcFour:  "/food-four.png",},
-    {  srcOne:"/voistrap-one.png",
-      srcTWo:"/voistrap-two.png",
-      srcThree:"/voistrap-three.png",
-      srcFour:  "/voistrap-four.png",},
-
+  { srcOne: "/image-ten.png", srcTWo: "/image-eleven.png" },
+  {
+    srcOne: "/image-twelve.png",
+    srcTWo: "/image-thirteen.png",
+    srcThree: "/image-fourteen.png",
+    srcFour: "/image-fifteen.png",
+  },
+  {
+    srcOne: "/food-one.png",
+    srcTWo: "/food-two.png",
+    srcThree: "/food-three.png",
+    srcFour: "/food-four.png",
+  },
+  {
+    srcOne: "/voistrap-one.png",
+    srcTWo: "/voistrap-two.png",
+    srcThree: "/voistrap-three.png",
+    srcFour: "/voistrap-four.png",
+  },
 ];
 const DesignSystem = () => {
   const sectionListRef = useRef<HTMLInputElement>(null);
   const [inView, setInView] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
-  useEffect(()=>{
-    setInView(false)
-  }, [textIndex])
+  useEffect(() => {
+    setInView(false);
+  }, [textIndex]);
   useEffect(() => {
     const handleScroll = () => {
       const srcOne = document.getElementById("srcOne");
       const srcTWo = document.getElementById("srcTWo");
       const srcThree = document.getElementById("srcThree");
       const srcFour = document.getElementById("srcFour");
-      if (!sectionListRef.current || !srcOne || !srcTWo || !srcThree ||!srcFour) return;
+      if (
+        !sectionListRef.current ||
+        !srcOne ||
+        !srcTWo ||
+        !srcThree ||
+        !srcFour
+      )
+        return;
       const topPosition = sectionListRef.current.getBoundingClientRect().top;
-      const sectionHeight = sectionListRef.current.getBoundingClientRect().height;
+      const sectionHeight =
+        sectionListRef.current.getBoundingClientRect().height;
       const scrollPosition = window.scrollY + window.innerHeight;
-      const newPosition = Math.round(((scrollPosition - topPosition) / sectionHeight) * 100);
-      console.log(`topPosition ${topPosition}`)
-      console.log(`scrollPosition ${scrollPosition}`)
+      const newPosition = Math.round(
+        ((scrollPosition - topPosition) / sectionHeight) * 100
+      );
+      console.log(`topPosition ${topPosition}`);
+      console.log(`scrollPosition ${scrollPosition}`);
       if (topPosition < scrollPosition) {
-        setInView(true); //work
-        srcOne.style.transform = `translateY(${-50 + newPosition}%)`
-        srcTWo.style.transform = `translateY(${-38 + newPosition}%)`
-        srcThree.style.transform = `translateY(${-24 + newPosition}%)`
-        srcFour.style.transform = `translateY(${-9 + newPosition}%)`
-
-
+        setInView(true);
+        srcOne.style.transform = `translateY(${-60 + newPosition}%)`;
+        srcTWo.style.transform = `translateY(${-38 + newPosition}%)`;
+        srcThree.style.transform = `translateY(${-24 + newPosition}%)`;
+        srcFour.style.transform = `translateY(${-9 + newPosition}%)`;
       } else {
         setInView(false);
       }
@@ -124,11 +137,10 @@ const DesignSystem = () => {
         setTextIndex(4);
       } else if (scrollPosition >= 8200 && scrollPosition < 9300) {
         setTextIndex(5);
-      }else if (scrollPosition == 1608 || scrollPosition <= 4000){
+      } else if (scrollPosition == 1608 || scrollPosition <= 4000) {
         setTextIndex(0);
       }
     };
-
 
     window.addEventListener("scroll", handleScroll);
 

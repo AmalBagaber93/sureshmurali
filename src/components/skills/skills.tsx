@@ -38,13 +38,18 @@ const Skills = () => {
       ref={sectionSkillsRef}
       className="flex flex-col  justify-center  min-h-screen"
     >
+    <h1
+  id="titleSkillsMotion"
+  className="sm:hidden md:block text-[200px] font-semibold text-gray-100 absolute z-0 mt-96 transition-transform duration-1000 ease-out opacity-0"
+>
+  SKILLS
+</h1>
+      <div className=" block md:flex  justify-between gap-16 relative z-10 md:pl-64 md:pr-48">
       <h1
-        id="titleSkillsMotion"
-        className="text-[80px] md:text-[200px] font-semibold  text-gray-100 absolute    z-0 mt-96 transition-transform duration-1000 ease-out opacity-0 "
-      >
-        SKILLS
-      </h1>
-      <div className="flex  justify-between gap-16 relative z-10 pl-64 pr-48">
+  className="sm:block md:hidden text-[100px] font-semibold text-black"
+>
+  SKILLS
+</h1>
         <div className=" space-y-12">
           <div>
             <h1 className="text-4xl">Product Design</h1>
