@@ -40,7 +40,7 @@ const Skills = () => {
     >
     <h1
   id="titleSkillsMotion"
-  className="sm:hidden md:block text-[200px] font-semibold text-gray-100 absolute z-0 mt-96 transition-transform duration-1000 ease-out opacity-0"
+  className="sm:hidden md:block text-[200px]  font-semibold text-gray-100 absolute z-0 mt-96 transition-transform duration-1000 ease-in opacity-0"
 >
   SKILLS
 </h1>

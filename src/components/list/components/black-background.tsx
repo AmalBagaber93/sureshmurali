@@ -13,10 +13,10 @@ const BlackBackground = ({
 }: BlackBackgroundProps) => {
   return (
     <div className="relative w-fit h-fit overflow-hidden">
-      <div className={`${attributeText} relative z-10"`}>{children}</div>
+      <div className={`${attributeText} ${inView &&'animate-text'} relative z-10"`}>{children}</div>
       <div
         className={`absolute top-0 left-0 h-full w-full transition-all duration-1000 z-0 ${
-          inView ? "animate-progress bg-black" : "bg-transparent"
+          inView ? "animate-progress" : ""
         }`}
       ></div>
     </div>
@@ -24,3 +24,4 @@ const BlackBackground = ({
 };
 
 export default BlackBackground;
+

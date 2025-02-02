@@ -47,15 +47,63 @@ body {
 }
 
 
-@keyframes move {
+/* @keyframes move {
   0% {
     transform: translateX(0%);
   }
   100% {
+
+  }
+} */
+
+/* .animate-progress {
+  animation: move 2s linear forwards;
+} */
+
+@keyframes fillAndEmpty {
+  0% {
+    background-position: 100% 0;
+ 
+  }
+  50% {
+    background-position: 0 0;
+    transform: translateX(0%);
+
+  }
+  100% {
+    background-position: 100% 0;
     transform: translateX(100%);
+
   }
 }
 
+
+
+
+
 .animate-progress {
-  animation: move 2s linear forwards;
+  background: linear-gradient(to right, black 50%, transparent 0);
+  background-size: 200% 100%;
+  background-position: 100% 0;
+  animation: fillAndEmpty 3s ease-in-out ;
 }
+
+@keyframes fadeIn {
+  0% {
+
+   visibility:visible;
+    opacity:0;
+  }
+   100% {
+  
+     visibility:visible;
+     opacity:1;
+    }}
+
+.animate-text {
+  /* color: rgb(0, 0, 0); */
+  visibility:hidden;
+  animation: fadeIn 0s forwards 1.5s;
+
+}
+
