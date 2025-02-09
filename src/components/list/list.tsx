@@ -3,6 +3,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import Images from "./components/images";
 import Texts from "./components/texts";
+import clsx from "clsx";
 
 const textsData = [
   {
@@ -66,7 +67,7 @@ const imagesData = [
     srcFour: "/image-nine.png",
   },
 
-  { srcOne: "/image-ten.png", srcTWo: "/image-eleven.png", isLarge:true },
+  { srcOne: "/image-ten.png", srcTWo: "/image-eleven.png", isLarge: true },
   {
     srcOne: "/image-twelve.png",
     srcTWo: "/image-thirteen.png",
@@ -88,21 +89,15 @@ const imagesData = [
 ];
 const DesignSystem = () => {
   const sectionListRef = useRef<HTMLInputElement>(null);
-  const lastScrollYRef = useRef(0);
-  const incrementRef = useRef(0);
-
-
   const [inView, setInView] = useState(false);
   const [textIndex, setTextIndex] = useState(0);
-  const [increment, setIncrement] = useState(0);
-
+  const [increment, setIncrement] = useState(false);
 
   useEffect(() => {
     setInView(false);
   }, [textIndex]);
   useEffect(() => {
     const handleScroll = () => {
-  
       const srcOne = document.getElementById("srcOne0");
       const srcTWo = document.getElementById("srcTWo0");
       const srcThree = document.getElementById("srcThree0");
@@ -126,12 +121,12 @@ const DesignSystem = () => {
       const srcThree5 = document.getElementById("srcThree5");
       const srcFour5 = document.getElementById("srcFour5");
       if (
-        !sectionListRef.current  ||
+        !sectionListRef.current ||
         !srcOne ||
         !srcTWo ||
         !srcThree ||
         !srcFour ||
-        !srcOne1||
+        !srcOne1 ||
         !srcTWo1 ||
         !srcThree1 ||
         !srcFour1 ||
@@ -148,87 +143,121 @@ const DesignSystem = () => {
         !srcOne5 ||
         !srcTWo5 ||
         !srcThree5 ||
-        !srcFour5 
-     
+        !srcFour5
       )
         return;
-  
+
       const topPosition = sectionListRef.current.getBoundingClientRect().top;
-      const sectionHeight =
-        sectionListRef.current.getBoundingClientRect().height;
-        //+ window.innerHeight;
-      const scrollPosition = window.scrollY 
-      const newPosition = Math.round(
-        ((scrollPosition - topPosition) / sectionHeight) * 100
-      );
-   
-      const percentageScrolled = ((scrollPosition - topPosition) / sectionHeight) * 100;
-      // const newIndex = Math.min(Math.floor(percentageScrolled * textsData.length), textsData.length - 1);
-      // setTextIndex(newIndex);
-      
-      const isScrollingDown = scrollPosition > lastScrollYRef.current;
-   
-      // incrementRef.current = isScrollingDown ? incrementRef.current + 1 : incrementRef.current - 1;
-      incrementRef.current = percentageScrolled
-      if (isScrollingDown) {
-        incrementRef.current += 20;;
-      } else {
-        incrementRef.current -=  20;
-      }
+      const sectionHeight = sectionListRef.current.getBoundingClientRect().height;
+      const scrollPosition = window.scrollY;
+
+      const percentageScrolled =((topPosition - scrollPosition) / sectionHeight) * 100;
+
+      console.log("scrollPosition", scrollPosition);
   
 
+      srcOne.style.top = "-43vh";
+      srcTWo.style.top = "-55vh";
+        srcThree.style.top = "-8vh";
+        srcFour.style.top = "-7vh";
 
-      console.log('scrollPosition' ,scrollPosition)
-      console.log('percentageScrolled' ,percentageScrolled)
-      console.log('incrementRef' ,  incrementRef)
-      console.log('incremtopPositionentRef' ,  topPosition)
-      console.log('newPosition' ,newPosition) 
-      if (topPosition < scrollPosition) {
-     
+        srcOne1.style.bottom = "-50vh";
+        srcTWo1.style.bottom = "5vh";
+       srcThree1.style.bottom = "-15vh"
+        srcFour1.style.bottom = "-7vh";
+
+        srcOne2.style.bottom = "-225vh";
+        srcTWo2.style.bottom = "-70vh";
+
+        srcOne3.style.bottom = "-377vh";
+        srcTWo3.style.bottom = "-200vh";
+        srcThree3.style.bottom = "-172vh";
+        srcFour3.style.bottom = "-130vh";
+
+        srcOne4.style.bottom = "-550vh";
+        srcTWo4.style.bottom = "-313vh";
+        srcThree4.style.bottom = "-256vh";
+        srcFour4.style.bottom = "-202vh";
+
+        srcOne5.style.bottom = "-747vh";
+        srcTWo5.style.bottom = "-465vh";
+        srcThree5.style.bottom = "-370vh";
+        srcFour5.style.bottom = "-293vh";
+        
+        srcOne.style.transform = `translateY(${12.51 * percentageScrolled}%)`;
+        srcTWo.style.transform = `translateY(${6.673 * percentageScrolled}%)`;
+        srcThree.style.transform = `translateY(${4.17 * percentageScrolled}%)`;
+        srcFour.style.transform = `translateY(${2.6683 * percentageScrolled}%)`;
+      if (percentageScrolled < 0) {
         setInView(true);
-        srcOne.style.transform = `translateY(${-70 +-incrementRef.current +8}%)`;
-        srcTWo.style.transform = `translateY(${-40 + -incrementRef.current+2}%)`;
-        srcThree.style.transform = `translateY(${-24 + -incrementRef.current+1 }%)`;
-        srcFour.style.transform = `translateY(${-10 +  -incrementRef.current }%)`;
-        srcOne1.style.transform = `translateY(${-4 +  -incrementRef.current+8 }%)`;
-        srcTWo1.style.transform = `translateY(${-24 + incrementRef.current+2 }%)`;
-        srcThree1.style.transform = `translateY(${-24 + incrementRef.current +1}%)`;
-        srcFour1.style.transform = `translateY(${-24 + incrementRef.current }%)`;
-        srcOne2.style.transform = `translateY(${-60 +  incrementRef.current +8}%)`;
-        srcTWo2.style.transform = `translateY(${-38 +  incrementRef.current +2}%)`;
-        srcOne3.style.transform = `translateY(${-60 +  incrementRef.current+8 }%)`;
-        srcTWo3.style.transform = `translateY(${-38 +  incrementRef.current+2}%)`;
-        srcThree3.style.transform = `translateY(${-24 + incrementRef.current+1 }%)`;
-        srcFour3.style.transform = `translateY(${-24 + incrementRef.current }%)`;
-        srcOne4.style.transform = `translateY(${-60 +  incrementRef.current+8 }%)`;
-        srcTWo4.style.transform =`translateY(${-38 +  incrementRef.current+2}%)`;
-        srcThree4.style.transform =`translateY(${-24 + incrementRef.current+1 }%)`;
-        srcFour4.style.transform = `translateY(${-24 + incrementRef.current }%)`;
-        srcOne5.style.transform = `translateY(${-60 +  incrementRef.current +8 }%)`;
-        srcTWo5.style.transform =`translateY(${-38 +  incrementRef.current+2}%)`;
-        srcThree5.style.transform = `translateY(${-24 + incrementRef.current+1 }%)`;
-        srcFour5.style.transform = `translateY(${-24 + incrementRef.current }%)`;
+    
 
-        // srcThree2.style.transform = `translateY(${-24 + newPosition}%)`;
-        // srcFour2.style.transform = `translateY(${-9 + newPosition}%)`;
       } else {
         setInView(false);
       }
-      // console.log(scrollPosition)
-      if (scrollPosition >= 4000 && scrollPosition < 5200) {
-        setTextIndex(1);
-     
-        // setInView(true); //why doesn't it work
-      } else if (scrollPosition >= 5200 && scrollPosition < 6100) {
-        setTextIndex(2);
-      } else if (scrollPosition >= 6100 && scrollPosition < 7050) {
-        setTextIndex(3);
-      } else if (scrollPosition >= 7050 && scrollPosition < 8200) {
-        setTextIndex(4);
-      } else if (scrollPosition >= 8200 && scrollPosition < 9300) {
-        setTextIndex(5);
-      } else if (scrollPosition == 1608 || scrollPosition <= 4000) {
+      if (scrollPosition >= 1277 && scrollPosition <= 10400) {
+  setIncrement(true)
+}
+else{
+  setIncrement(false);
+}
+
+
+      console.log("percentageScrolled", percentageScrolled)
+      if (
+        scrollPosition == 1650 ||
+        (scrollPosition <= 2363 && percentageScrolled < 0)
+      ) {
+      ;
+        // console.log("lll", increment);
         setTextIndex(0);
+      } else if (scrollPosition >= 2363 && scrollPosition < 3915) {
+      
+        setTextIndex(1);
+      } else if (scrollPosition >= 3915 && scrollPosition < 5210) {
+
+        setTextIndex(2);
+      } else if (scrollPosition >= 5210 && scrollPosition < 7152) {
+
+        setTextIndex(3);
+      } else if (scrollPosition >= 7152 && scrollPosition < 8809) {
+      
+        setTextIndex(4);
+      } else if (scrollPosition >= 8809 && scrollPosition < 10764) {
+    
+        setTextIndex(5);
+      }
+
+      if (
+        scrollPosition >= 1800  && scrollPosition < 10000
+      ) {
+      
+        srcOne1.style.transform = `translateY(${4.133 * percentageScrolled}%)`;
+        srcTWo1.style.transform = `translateY(${2.104 * percentageScrolled}%)`;
+        srcThree1.style.transform = `translateY(${1.381 * percentageScrolled }%)`;
+        srcFour1.style.transform = `translateY(${0.553 * percentageScrolled}%)`;
+        
+        srcOne2.style.transform = `translateY(${4.133 * percentageScrolled}%)`;
+        srcTWo2.style.transform = `translateY(${0.553 * percentageScrolled}%)`;
+
+        srcOne3.style.transform = `translateY(${4.133* percentageScrolled}%)`;
+        srcTWo3.style.transform = `translateY(${2.104* percentageScrolled}%)`;
+        srcThree3.style.transform = `translateY(${1.381 * percentageScrolled}%)`;
+        srcFour3.style.transform = `translateY(${0.553 * percentageScrolled}%)`;
+      
+      
+        srcOne4.style.transform = `translateY(${(4.133 * percentageScrolled)}%)`;
+        srcTWo4.style.transform = `translateY(${(2.104 * percentageScrolled)}%)`;
+        srcThree4.style.transform = `translateY(${(1.381 * percentageScrolled)}%)`;
+        srcFour4.style.transform = `translateY(${(0.553 * percentageScrolled)}%)`;
+
+   
+      
+        srcOne5.style.transform = `translateY(${(4.133 * percentageScrolled)}%)`;
+        srcTWo5.style.transform = `translateY(${(2.104 * percentageScrolled)}%)`;
+        srcThree5.style.transform = `translateY(${(1.381 * percentageScrolled)}%)`;
+        srcFour5.style.transform = `translateY(${(0.553 * percentageScrolled)}%)`;
+        
       }
     };
 
@@ -239,22 +268,29 @@ const DesignSystem = () => {
     };
   }, []);
   return (
-    <div
-      ref={sectionListRef}
-      className="flex gap-20 justify-between min-h-screen no-scrollbar"
-    >
-  
-      <div className="relative w-full">
-        <div className="sticky top-0">
+    <div ref={sectionListRef} className="  min-h-screen ">
+      {increment && (
+        <div
+          className={clsx(
+            increment && " fixed",
+            "  top-0 left-0 w-1/2 px-12 "
+          )}
+        >
+        {/* {console.log('hey i am here weird', increment)} */}
+        
+
           <Texts inView={inView} data={textsData[textIndex]} />
         </div>
-      </div>
-      <div className="w-full  ">
+      )}
+
+      <div className=" flex flex-col h-[880vh] w-1/2  ml-[50%] ">
         <Images src={imagesData} />
       </div>
-    
     </div>
   );
 };
 
 export default DesignSystem;
+
+
+

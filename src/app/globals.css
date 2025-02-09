@@ -85,7 +85,7 @@ body {
   background: linear-gradient(to right, black 50%, transparent 0);
   background-size: 200% 100%;
   background-position: 100% 0;
-  animation: fillAndEmpty 3s ease-in-out ;
+  animation: fillAndEmpty 1s ease-in-out ;
 }
 
 @keyframes fadeIn {
@@ -103,7 +103,7 @@ body {
 .animate-text {
   /* color: rgb(0, 0, 0); */
   visibility:hidden;
-  animation: fadeIn 0s forwards 1.5s;
+  animation: fadeIn 0s forwards 0.5s;
 
 }
 

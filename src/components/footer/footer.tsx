@@ -22,7 +22,7 @@ const Footer = () => {
       );
       if (topPosition < windowHeight) {
         titleMotion.style.opacity = "1";
-        titleMotion.style.transform = `translateX(${-60 + newPosition}%)`;
+        titleMotion.style.transform = `translateX(${-90 + newPosition}%)`;
       } else {
         titleMotion.style.opacity = "0";
         titleMotion.style.transform = `translateX(0)`;
@@ -38,11 +38,11 @@ const Footer = () => {
   return (
     <div
       ref={sectionfootereRef}
-      className="flex flex-col  justify-center  min-h-screen overflow-hidden"
+      className="flex flex-col  justify-center   min-h-screen overflow-hidden"
     >
       <h1
         id="footerTitle"
-        className="sm:hidden md:block relative text-[200px]  font-semibold text-gray-100 transition-transform duration-1000 ease-out opacity-0 w-fit  "
+        className="sm:hidden md:block relative text-[200px]  font-semibold text-gray-100 transition-transform  duration-1000 ease-out opacity-0 w-fit  "
       >
         CONTACT
       </h1>

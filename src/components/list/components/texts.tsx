@@ -22,18 +22,18 @@ const Texts = ({inView, data}:TextsProps) => {
     <BlackBackground inView={inView} attributeText="text-2xl font-semibold  ">
      {data.id}
     </BlackBackground>
-    <div className="space-y-10 pt-20 pb-[510px] ">
+    <div className="space-y-10 pt-44 pb-[510px] px-10 ">
       <BlackBackground
         inView={inView}
-        attributeText="text-6xl font-semibold"
+        attributeText="text-7xl font-semibold text-gray-800"
       >
        {data.title}
       </BlackBackground>
-<div className="space-y-3">
+<div className="space-y-5">
 <BlackBackground inView={inView} attributeText="text-3xl font-medium">
      {data.category}
       </BlackBackground>
-      <BlackBackground inView={inView} attributeText="text-2xl font-medium">
+      <BlackBackground inView={inView} attributeText="text-3xl ">
      {data.description}
       </BlackBackground>
 </div>
