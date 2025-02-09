@@ -20,11 +20,12 @@ const Skills = () => {
 
       if (topPosition < windowHeight) {
         titleMotion.style.opacity = "1";
-        titleMotion.style.transform = `translateX(${newPosition}%)`;
+        titleMotion.style.transform = `translateX(${-newPosition}%)`;
       } else {
         titleMotion.style.opacity = "0";
         titleMotion.style.transform = `translateX(0)`;
       }
+      console.log("newPosition", newPosition)
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -36,20 +37,18 @@ const Skills = () => {
   return (
     <div
       ref={sectionSkillsRef}
-      className="flex flex-col  justify-center  min-h-screen"
+  className="flex flex-col justify-center min-h-screen overflow-hidden relative"
     >
-    <h1
-  id="titleSkillsMotion"
-  className="sm:hidden md:block text-[200px]  font-semibold text-gray-100 absolute z-0 mt-96 transition-transform duration-1000 ease-in opacity-0"
->
-  SKILLS
-</h1>
-      <div className=" block md:flex  justify-between gap-16 relative z-10 md:pl-64 md:pr-48">
       <h1
-  className="sm:block md:hidden text-[100px] font-semibold text-black"
->
-  SKILLS
-</h1>
+        id="titleSkillsMotion"
+        className="   sm:hidden md:block text-[200px]  font-semibold text-gray-100 absolute right-[-50%] z-0 mt-96 transition-transform duration-1000 ease-out opacity-0 "
+      >
+        SKILLS
+      </h1>
+      <div className=" block md:flex  justify-between gap-16 relative z-10 md:pl-64 md:pr-48">
+        <h1 className="sm:block md:hidden text-[100px] font-semibold text-black">
+          SKILLS
+        </h1>
         <div className=" space-y-12">
           <div>
             <h1 className="text-4xl">Product Design</h1>

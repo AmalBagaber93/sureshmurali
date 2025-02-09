@@ -4,26 +4,33 @@ import clsx from "clsx";
 
 type ImagesProps = {
   src: {
-    srcOne?: string;
+    srcOne: string;
+    attributeSrcOne?: string;
     srcTWo?: string;
+    attributeSrcTwo?: string;
     srcThree?: string;
+    attributeSrcThree?: string;
     srcFour?: string;
+    attributeSrcFour?: string;
     isLarge?: boolean;
   }[];
 };
 
 const Images = ({ src }: ImagesProps) => {
+
   return (
     <>
       {src.map((img, index) => (
         <div key={index} className=" grid grid-cols-2 justify-between relative z-20 min-h-screen ">
+
         <Image
            id={`srcOne${index}`}
            src={img.srcOne || ""}
            alt={""}
            width={394}
            height={200}
-           className="absolute  left-0  z-50  translate-x-0 transition-transform duration-150 ease-linear"
+        className="absolute  left-0  z-50  translate-x-0 transition-transform duration-150 ease-linear"
+           //className={clsx("absolute left-0 z-50 translate-x-0 transition-transform duration-150 ease-linear", img.attributeSrcOne)}
          />
          <Image
            id={`srcTWo${index}`}
@@ -31,7 +38,8 @@ const Images = ({ src }: ImagesProps) => {
            alt={""}
            width={img.isLarge ? 500 : 350}
            height={200}
-           className={clsx(" absolute  z-50  transition-transform duration-150 ease-linear translate-x-0 " , img.isLarge  ?" right-1" : " right-10")}
+           //className={clsx("absolute z-50 transition-transform duration-150 ease-linear translate-x-0", img.isLarge ? "right-1" : "right-10", img.attributeSrcTwo)}
+          className={clsx(" absolute  z-50  transition-transform duration-150 ease-linear translate-x-0 " , img.isLarge  ?" right-1" : " right-10")}
          />
          {img.srcThree && (
            <Image
@@ -40,6 +48,7 @@ const Images = ({ src }: ImagesProps) => {
              alt={""}
              width={ 270}
              height={200}
+            // className={clsx("absolute object-cover z-0 left-28 translate-x-0 transition-transform duration-150 ease-linear", img.attributeSrcThree)}
              className="absolute object-cover    z-0   left-28 translate-x-0 transition-transform duration-150 ease-linear"
  
            />
@@ -51,7 +60,8 @@ const Images = ({ src }: ImagesProps) => {
              alt={""}
              width={240}
              height={200}
-             className=" absolute  right-[5vw] scale-[0.6] z-0 translate-x-0 transition-transform duration-150 ease-linear"
+            // className={clsx("absolute right-[5vw] scale-[0.6] z-0 transition-transform duration-150 ease-linear", img.attributeSrcFour)}
+            className=" absolute  right-[5vw] scale-[0.6] z-0 translate-x-0 transition-transform duration-150 ease-linear"
            />
          )}
        </div>

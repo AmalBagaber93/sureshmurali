@@ -21,7 +21,7 @@ const AboutMe = () => {
       );
       if (topPosition < windowHeight) {
         titleMotion.style.opacity = "1";
-        titleMotion.style.transform = `translateX(${-60 + newPosition}%)`;
+        titleMotion.style.transform = `translateX(${newPosition - 70}%)`;
       } else {
         titleMotion.style.opacity = "0";
         titleMotion.style.transform = `translateX(0)`;
@@ -38,12 +38,12 @@ const AboutMe = () => {
   return (
     <div
       ref={sectionAboutMeRef}
-      className="flex flex-col relative  min-h-screen mb-80 overflow-hidden"
+      className="flex flex-col relative   min-h-screen mb-80 overflow-hidden"
     >
       <h1
         id="titleMotion"
         className={clsx(
-          "sm:hidden md:block relative text-[200px] font-semibold text-gray-100 transition-transform duration-1000 ease-out opacity-0   "
+          "sm:hidden md:block relative left-[-15%] text-[200px] font-semibold text-gray-100 transition-transform duration-1000 ease-linear opacity-0    "
         )}
       >
         ABOUT ME

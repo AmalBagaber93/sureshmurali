@@ -4,89 +4,10 @@ import React, { useEffect, useRef, useState } from "react";
 import Images from "./components/images";
 import Texts from "./components/texts";
 import clsx from "clsx";
+import { imagesData, textsData } from "@/data/data";
 
-const textsData = [
-  {
-    id: "01",
-    title: "FR Design System",
-    category: "Design System Lead • Technical PDM",
-    description:
-      "Multi brand e-commerce design system for websites and native mobile applications.",
-    footerTitle: "DESIGN SYSTEM",
-  },
-  {
-    id: "02",
-    title: "LASHIC",
-    category: "Design lead",
-    description:
-      "Mobile app and websites for senior citizen facilitys caregivers service managers and admins.",
-    footerTitle: "APP SUITE",
-  },
-  {
-    id: "03",
-    title: "Eyep",
-    category: "UI Designer  •  Front-end Developer",
-    description: "Single purpose website to show your IP address and location.",
-    footerTitle: "WEB APP",
-  },
-  {
-    id: "04",
-    title: "Tesla app",
-    category: "UI Designer",
-    description: "iOS app concept to control Tesla cars remotely.",
-    footerTitle: "APP CONCEPT",
-  },
-  {
-    id: "05",
-    title: "WhatsMyFood",
-    category: "UI Designer  •  Front-end Developer",
-    description:
-      "iOS app to remember your fav food at each restaurant you eat.",
-    footerTitle: "iOS APP",
-  },
-  {
-    id: "06",
-    title: "Voistrap",
-    category: "UI Designer  •  Full Stack Developer",
-    description:
-      "Web app project to give workplace insights using indoor localization, voice and schedule",
-    footerTitle: "iOS APP",
-  },
-];
-const imagesData = [
-  {
-    srcOne: "/image-one.png",
-    srcTWo: "/image-two.png",
-    srcThree: "/image-three.png",
-    srcFour: "/image-four.png",
-  },
-  {
-    srcOne: "/image-five.png",
-    srcTWo: "/image-six.png",
-    srcThree: "/image-seven.png",
-    srcFour: "/image-nine.png",
-  },
 
-  { srcOne: "/image-ten.png", srcTWo: "/image-eleven.png", isLarge: true },
-  {
-    srcOne: "/image-twelve.png",
-    srcTWo: "/image-thirteen.png",
-    srcThree: "/image-fourteen.png",
-    srcFour: "/image-fifteen.png",
-  },
-  {
-    srcOne: "/food-one.png",
-    srcTWo: "/food-two.png",
-    srcThree: "/food-three.png",
-    srcFour: "/food-four.png",
-  },
-  {
-    srcOne: "/voistrap-one.png",
-    srcTWo: "/voistrap-two.png",
-    srcThree: "/voistrap-three.png",
-    srcFour: "/voistrap-four.png",
-  },
-];
+
 const DesignSystem = () => {
   const sectionListRef = useRef<HTMLInputElement>(null);
   const [inView, setInView] = useState(false);
@@ -166,23 +87,23 @@ const DesignSystem = () => {
        srcThree1.style.bottom = "-15vh"
         srcFour1.style.bottom = "-7vh";
 
-        srcOne2.style.bottom = "-225vh";
+        srcOne2.style.top = "225vh";
         srcTWo2.style.bottom = "-70vh";
 
-        srcOne3.style.bottom = "-377vh";
+        srcOne3.style.top = "377vh";
         srcTWo3.style.bottom = "-200vh";
         srcThree3.style.bottom = "-172vh";
         srcFour3.style.bottom = "-130vh";
 
-        srcOne4.style.bottom = "-550vh";
-        srcTWo4.style.bottom = "-313vh";
-        srcThree4.style.bottom = "-256vh";
+        srcOne4.style.top = "470vh";
+        srcTWo4.style.bottom = "-223vh";
+        srcThree4.style.bottom = "-216vh";
         srcFour4.style.bottom = "-202vh";
 
-        srcOne5.style.bottom = "-747vh";
-        srcTWo5.style.bottom = "-465vh";
-        srcThree5.style.bottom = "-370vh";
-        srcFour5.style.bottom = "-293vh";
+        srcOne5.style.top = "650vh";
+        srcTWo5.style.top = "365vh";
+        srcThree5.style.bottom = "-308vh";
+        srcFour5.style.bottom = "-313vh";
         
         srcOne.style.transform = `translateY(${12.51 * percentageScrolled}%)`;
         srcTWo.style.transform = `translateY(${6.673 * percentageScrolled}%)`;
@@ -246,16 +167,16 @@ else{
         srcFour3.style.transform = `translateY(${0.553 * percentageScrolled}%)`;
       
       
-        srcOne4.style.transform = `translateY(${(4.133 * percentageScrolled)}%)`;
-        srcTWo4.style.transform = `translateY(${(2.104 * percentageScrolled)}%)`;
-        srcThree4.style.transform = `translateY(${(1.381 * percentageScrolled)}%)`;
+        srcOne4.style.transform = `translateY(${(3.133 * percentageScrolled)}%)`;
+        srcTWo4.style.transform = `translateY(${(1.104 * percentageScrolled)}%)`;
+        srcThree4.style.transform = `translateY(${(0.881 * percentageScrolled)}%)`;
         srcFour4.style.transform = `translateY(${(0.553 * percentageScrolled)}%)`;
 
    
       
-        srcOne5.style.transform = `translateY(${(4.133 * percentageScrolled)}%)`;
-        srcTWo5.style.transform = `translateY(${(2.104 * percentageScrolled)}%)`;
-        srcThree5.style.transform = `translateY(${(1.381 * percentageScrolled)}%)`;
+        srcOne5.style.transform = `translateY(${(3.133 * percentageScrolled)}%)`;
+        srcTWo5.style.transform = `translateY(${(1.104 * percentageScrolled)}%)`;
+        srcThree5.style.transform = `translateY(${(0.881 * percentageScrolled)}%)`;
         srcFour5.style.transform = `translateY(${(0.553 * percentageScrolled)}%)`;
         
       }
@@ -283,7 +204,7 @@ else{
         </div>
       )}
 
-      <div className=" flex flex-col h-[880vh] w-1/2  ml-[50%] ">
+      <div className=" flex flex-col h-[880vh] w-1/2  md:ml-[50%] ">
         <Images src={imagesData} />
       </div>
     </div>

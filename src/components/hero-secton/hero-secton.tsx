@@ -30,7 +30,7 @@ const HeroSection = () => {
       </div>
 <div>
 <h2 id="hero-subtitle" className="text-3xl md:text-5xl mt-2.5 opacity-0 transform translate-y-12 transition-all">UI/UX Designer & Developer</h2>
-<div className=" absolute  bg-white h-20 w-[600px] "></div>
+<div className=" absolute  bg-white h-20 w-[650px] "></div>
 </div>
     
     </div>
