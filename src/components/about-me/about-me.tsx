@@ -38,7 +38,7 @@ const AboutMe = () => {
   return (
     <div
       ref={sectionAboutMeRef}
-      className="flex flex-col relative   min-h-screen mb-80 overflow-hidden"
+      className="flex flex-col relative   min-h-screen mb-72 overflow-hidden"
     >
       <h1
         id="titleMotion"
